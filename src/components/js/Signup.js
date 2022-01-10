@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BsPerson } from 'react-icons/bs';
 import { IoMailOutline } from 'react-icons/io5';
 import { VscLock } from 'react-icons/vsc';
 import { Link, useNavigate } from 'react-router-dom';
 import validator from 'validator';
+import { createBrowserHistory } from 'history'
 
 
 // components
@@ -14,6 +15,8 @@ import ErrorHanlde from './ErrorHanlde';
 
 const Signup = () => {
     const navigate = useNavigate()
+    const history = createBrowserHistory()
+
     const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
@@ -30,15 +33,24 @@ const Signup = () => {
 
         try {
             const res = await AxiosInstance.post('/api/user/signup', { name, email, password })
-            localStorage.setItem('user', JSON.stringify(res.data.user))
+            console.log(res.data)
+            localStorage.setItem('_id', JSON.stringify(res.data._id))
 
-            return navigate(-1)
+            history.replace('/')
+            return navigate('/email-verification')
 
         } catch (error) {
             error.response &&
                 setErrorRes(error.response.data.error)
         }
     }
+
+    useEffect(() => {
+        if (localStorage.getItem('user')) {
+            history.replace('/')
+            return navigate('/')
+        }
+    }, [])
 
     return (
         <>

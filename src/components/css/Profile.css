@@ -19,4 +19,5 @@
 .profile-button{
     width: 100px;
     padding: 3px;
+    cursor: pointer;
 }

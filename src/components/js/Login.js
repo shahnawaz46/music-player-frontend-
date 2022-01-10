@@ -3,6 +3,7 @@ import { IoMailOutline } from 'react-icons/io5';
 import { VscLock } from 'react-icons/vsc';
 import { Link, useNavigate } from 'react-router-dom';
 import validator from 'validator';
+import { createBrowserHistory } from 'history'
 
 // components
 import '../css/Signup.css';
@@ -10,11 +11,16 @@ import { AxiosInstance } from '../axios/AxiosInstance';
 import ErrorHanlde from './ErrorHanlde';
 
 
+/* eslint-disable */
+
 const Login = () => {
+    const navigate = useNavigate()
+    const history = createBrowserHistory()
+
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const [errorRes, setErrorRes] = useState()
-    const navigate = useNavigate()
+
 
     const loginFnc = async () => {
         if (!email || !password) {
@@ -29,6 +35,7 @@ const Login = () => {
             const res = await AxiosInstance.post('/api/user/login', { email, password })
             localStorage.setItem('user', JSON.stringify(res.data.user))
 
+            history.replace('/')
             return navigate(-1)
 
         } catch (error) {
@@ -39,7 +46,8 @@ const Login = () => {
 
     useEffect(() => {
         if (localStorage.getItem('user')) {
-            return navigate('/profile')
+            history.replace('/')
+            return navigate('/')
         }
     }, [])
 
@@ -65,9 +73,6 @@ const Login = () => {
                     <button onClick={loginFnc}>login</button>
                     <span style={{ marginTop: '30px', marginBottom: '10px' }}>Or</span>
                     <span>Don't have account ? <Link to="/signup" style={{ color: 'blue' }}>Signup</Link></span>
-                </div>
-                <div className="signup-with-others">
-
                 </div>
             </div >
 

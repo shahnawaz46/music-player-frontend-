@@ -1,0 +1,54 @@
+.email-verification-main-div{
+    width: 100%;
+    padding: 15px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.email-verification-main-div > h3{
+    font-weight: 500;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.email-verification-form{
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.email-verification-form > input{
+    width: 70%;
+    padding: 4px 7px;
+    font-size: 17px;
+    border: 1px solid #cbc2c2;
+    outline: none;
+}
+
+.email-verification-form > button{
+    margin-top: 10px;
+    width: 150px;
+    padding: 3px;
+    font-size: 16px;
+    border: 1px solid #cbc2c2;
+    outline: none;
+    cursor: pointer;
+}
+
+
+
+@media only screen and (max-width:480px) {
+    .email-verification-main-div{
+        width: 100%;
+        padding: 0px;
+        position: relative;
+        left: 0%;
+        top: 0%;
+        transform: translate(0%, 0%);
+        margin-top: 50%;
+    }
+}

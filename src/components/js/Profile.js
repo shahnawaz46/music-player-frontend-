@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/Profile.css';
+import { createBrowserHistory } from 'history'
 
 const Profile = () => {
     const navigate = useNavigate()
-    const [userLogin, setUserLogin] = useState()
+    const history = createBrowserHistory()
 
     const logout = () => {
         localStorage.clear()
-        setUserLogin(false)
-    }
+        history.replace("/")
+        return navigate('/')
 
-    useEffect(() => {
-        if (!localStorage.getItem('user')) {
-            navigate('/')
-        }
-    }, [userLogin])
+    }
 
     return (
         <div>

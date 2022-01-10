@@ -6,6 +6,7 @@ import Footer from './components/js/Footer';
 import Signup from './components/js/Signup';
 import Login from './components/js/Login';
 import Profile from './components/js/Profile';
+import EmailVerification from './components/js/EmailVerification';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/email-verification" element={<EmailVerification />} />
         </Routes>
         {
           currentSongIndex !== -1 && <Footer songList={songList} currentSongIndex={currentSongIndex} />
