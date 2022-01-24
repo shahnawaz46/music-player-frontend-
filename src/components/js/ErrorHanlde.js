@@ -6,9 +6,13 @@ const ErrorHanlde = ({ errorRes, setErrorRes }) => {
 
     useEffect(() => {
 
-        setTimeout(() => {
+        const time = setTimeout(() => {
             setErrorRes()
         }, 2000)
+
+        return () => {
+            clearTimeout(time)
+        }
 
     }, [errorRes])
 

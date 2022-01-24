@@ -67,10 +67,10 @@ const Login = () => {
                     </div >
                 </form >
                 <div className='signup-forgot-password'>
-                    <span>Forgot password</span>
+                    <Link to="/account/forgot-password">Forgot password</Link>
                 </div>
                 <div className="signup-button">
-                    <button onClick={loginFnc}>login</button>
+                    <button onClick={loginFnc}>Login</button>
                     <span style={{ marginTop: '30px', marginBottom: '10px' }}>Or</span>
                     <span>Don't have account ? <Link to="/signup" style={{ color: 'blue' }}>Signup</Link></span>
                 </div>

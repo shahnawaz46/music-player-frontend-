@@ -33,11 +33,11 @@ const Signup = () => {
 
         try {
             const res = await AxiosInstance.post('/api/user/signup', { name, email, password })
-            console.log(res.data)
+            // console.log(res.data)
             localStorage.setItem('_id', JSON.stringify(res.data._id))
 
             history.replace('/')
-            return navigate('/email-verification')
+            return navigate('/account/email-verification')
 
         } catch (error) {
             error.response &&
@@ -75,7 +75,7 @@ const Signup = () => {
                 <div className="signup-button">
                     <button onClick={signupFnc}>Signup</button>
                     <span style={{ marginTop: '30px', marginBottom: '10px' }}>Or</span>
-                    <span>Already a user ? <Link to="/login" style={{ color: 'blue' }}>Login</Link></span>
+                    <span>Already a user ? <Link to="/account/login" style={{ color: 'blue' }}>Login</Link></span>
                 </div>
                 <div className="signup-with-others">
 

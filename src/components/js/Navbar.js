@@ -10,9 +10,9 @@ const Navbar = () => {
 
     const checkUserIsLogin = () => {
         if (localStorage.getItem('user')) {
-            return navigate('/profile')
+            return navigate('/account/profile')
         } else {
-            return navigate('/login')
+            return navigate('/account/login')
         }
     }
 

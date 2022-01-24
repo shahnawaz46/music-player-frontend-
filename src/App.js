@@ -7,6 +7,8 @@ import Signup from './components/js/Signup';
 import Login from './components/js/Login';
 import Profile from './components/js/Profile';
 import EmailVerification from './components/js/EmailVerification';
+import ForgotPassword from './components/js/ForgotPassword';
+import RestPassword from './components/js/ResetPassword';
 
 
 function App() {
@@ -19,10 +21,12 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path=":slug" element={<SongsList setCurrentSongIndex={setCurrentSongIndex} songList={songList} setSongList={setSongList} />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/email-verification" element={<EmailVerification />} />
+          <Route path="/account/profile" element={<Profile />} />
+          <Route path="/account/signup" element={<Signup />} />
+          <Route path="/account/login" element={<Login />} />
+          <Route path="/account/email-verification" element={<EmailVerification />} />
+          <Route path="/account/forgot-password" element={<ForgotPassword />} />
+          <Route path="/account/reset/password/:token" element={<RestPassword />} />
         </Routes>
         {
           currentSongIndex !== -1 && <Footer songList={songList} currentSongIndex={currentSongIndex} />
