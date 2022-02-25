@@ -72,7 +72,7 @@ const Login = () => {
                 <div className="signup-button">
                     <button onClick={loginFnc}>Login</button>
                     <span style={{ marginTop: '30px', marginBottom: '10px' }}>Or</span>
-                    <span>Don't have account ? <Link to="/signup" style={{ color: 'blue' }}>Signup</Link></span>
+                    <span>Don't have account ? <Link to="/account/signup" style={{ color: 'blue' }}>Signup</Link></span>
                 </div>
             </div >
 

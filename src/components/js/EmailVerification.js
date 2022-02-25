@@ -25,7 +25,7 @@ const EmailVerification = () => {
                 _id
             }
             const res = await AxiosInstance.post('/api/email/verification', data)
-            localStorage.clear()
+            localStorage.clear('_id')
             localStorage.setItem("user", JSON.stringify(res.data.user))
 
             history.replace('/')
