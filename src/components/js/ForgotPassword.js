@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
 import avatarProfile from '../images/avatar.jpg';
 import { useNavigate } from 'react-router-dom';
-import { createBrowserHistory } from 'history'
 
 // components
 import '../css/ForgotPassword.css';
@@ -12,7 +11,6 @@ import ErrorHanlde from './ErrorHanlde';
 
 const ForgotPassword = () => {
     const navigate = useNavigate()
-    const history = createBrowserHistory()
 
     const [email, setEmail] = useState()
     const [errorRes, setErrorRes] = useState()
@@ -25,8 +23,7 @@ const ForgotPassword = () => {
             setErrorRes(res.data.message)
 
             setTimeout(() => {
-                history.replace('/')
-                return navigate('/account/login')
+                return navigate('/account/login', {replace:true})
             }, 2000)
 
         } catch (error) {
@@ -37,8 +34,7 @@ const ForgotPassword = () => {
 
     useEffect(() => {
         if (localStorage.getItem('user')) {
-            history.replace('/')
-            return navigate('/')
+            return navigate('/',{replace:true})
         }
     }, [])
 

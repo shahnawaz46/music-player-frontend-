@@ -4,7 +4,6 @@ import { IoMailOutline } from 'react-icons/io5';
 import { VscLock } from 'react-icons/vsc';
 import { Link, useNavigate } from 'react-router-dom';
 import validator from 'validator';
-import { createBrowserHistory } from 'history'
 
 
 // components
@@ -15,7 +14,6 @@ import ErrorHanlde from './ErrorHanlde';
 
 const Signup = () => {
     const navigate = useNavigate()
-    const history = createBrowserHistory()
 
     const [name, setName] = useState()
     const [email, setEmail] = useState()
@@ -36,8 +34,7 @@ const Signup = () => {
             // console.log(res.data)
             localStorage.setItem('_id', JSON.stringify(res.data._id))
 
-            history.replace('/')
-            return navigate('/account/email-verification')
+            return navigate('/account/email-verification', {replace:true})
 
         } catch (error) {
             error.response &&
@@ -47,8 +44,7 @@ const Signup = () => {
 
     useEffect(() => {
         if (localStorage.getItem('user')) {
-            history.replace('/')
-            return navigate('/')
+            return navigate('/',{replace:true})
         }
     }, [])
 

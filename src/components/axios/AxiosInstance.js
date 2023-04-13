@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = "https://music-players-backend.herokuapp.com"
+const url = "https://api-orbitius-music.onrender.com/"
 // const url = "http://localhost:9000"
 
 export const AxiosInstance = axios.create({

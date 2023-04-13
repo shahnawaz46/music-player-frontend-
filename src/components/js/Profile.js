@@ -1,17 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/Profile.css';
-import { createBrowserHistory } from 'history'
 
 const Profile = () => {
     const navigate = useNavigate()
-    const history = createBrowserHistory()
 
     const logout = () => {
         localStorage.clear()
-        history.replace("/")
-        return navigate('/')
 
+        return navigate('/',{replace:true})
     }
 
     return (

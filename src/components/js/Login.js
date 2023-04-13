@@ -3,7 +3,6 @@ import { IoMailOutline } from 'react-icons/io5';
 import { VscLock } from 'react-icons/vsc';
 import { Link, useNavigate } from 'react-router-dom';
 import validator from 'validator';
-import { createBrowserHistory } from 'history'
 
 // components
 import '../css/Signup.css';
@@ -15,7 +14,6 @@ import ErrorHanlde from './ErrorHanlde';
 
 const Login = () => {
     const navigate = useNavigate()
-    const history = createBrowserHistory()
 
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
@@ -35,8 +33,7 @@ const Login = () => {
             const res = await AxiosInstance.post('/api/user/login', { email, password })
             localStorage.setItem('user', JSON.stringify(res.data.user))
 
-            history.replace('/')
-            return navigate(-1)
+            return navigate(-1, {replace:true})
 
         } catch (error) {
             error.response &&

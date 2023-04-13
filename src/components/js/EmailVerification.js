@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { createBrowserHistory } from 'history'
 import { useNavigate } from 'react-router-dom';
 
 
@@ -10,7 +9,6 @@ import ErrorHanlde from './ErrorHanlde';
 
 
 const EmailVerification = () => {
-    const history = createBrowserHistory()
     const navigate = useNavigate()
 
     const [otp, setOtp] = useState()
@@ -28,8 +26,7 @@ const EmailVerification = () => {
             localStorage.clear('_id')
             localStorage.setItem("user", JSON.stringify(res.data.user))
 
-            history.replace('/')
-            return navigate(-1)
+            return navigate(-1, {replace:true})
 
         } catch (error) {
             error.response &&
@@ -40,8 +37,7 @@ const EmailVerification = () => {
 
     useEffect(() => {
         if (localStorage.getItem('user')) {
-            history.replace('/')
-            return navigate('/')
+            return navigate('/', {replace:true})
         }
     }, [])
 
